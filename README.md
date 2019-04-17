@@ -3,18 +3,18 @@ This repository contains implementation of the proximal Newton algorithm to esti
 *M. Bartoš, P. Rajmic, M. Šorel, M. Mangová, and R. Keunen, O. and Jiřík. Spatially regularized estimation of the tissue homogeneity model parameters in DCE-MRI using proximal minimization. Submitted to MRM, pages 1–27, 2019. Available at http://www.utko.feec.vutbr.cz/~rajmic/papers/Bartos_etal_RegularizedDCEMRI_web.pdf.*
 
 ## Files and directories
-`/Data` - folder with input DCE-MRI data
-`/Viewer` - viewer of the results
-`start_DCEMRI_estimation.m` - **starting script** defining input and additional parameters, running the main algorithm and visualizing/saving results
-`proximalLM_ChP.m` - main algorithm - proximal Levenberg-Marquardt combined with Primal-Dual Chambolle-Pock algorithm to solve the denoising sub-problem
-`PD_denoising_H_TV.m` - Primal-Dual Chambolle-Pock algorithm to solve the denoising sub-problem
-`y_minus_Cfit_L2_2.m` - Least-Mean-Squares function evaluating model and computing Hessian using Gauss-Newton approximation
-`C_fit_FT.m` - Pharmacokinetic model computing the convolution of AIF and IRF in the Fourier domain
-`TH_Sourbron2_FT.m` - Tissue Homogeneity model - IRF
-`aif_nonblind_real.m` - Arterial Input Function (AIF) model. It is no analytical model - just handling of sampled AIF.
-`fgrad_1.m` - computes image gradients on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).
-`bdiv_1.m` - computes divergence (adjoint to gradients) on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).
-`function_stdEst2D.m` - noise standard deviation estimator based on the Median of Absolute Deviation (MAD). It comes from Alessandro Foi.
+`/Data` - folder with input DCE-MRI data  
+`/Viewer` - viewer of the results  
+`start_DCEMRI_estimation.m` - **starting script** defining input and additional parameters, running the main algorithm and visualizing/saving results  
+`proximalLM_ChP.m` - main algorithm - proximal Levenberg-Marquardt combined with Primal-Dual Chambolle-Pock algorithm to solve the denoising sub-problem  
+`PD_denoising_H_TV.m` - Primal-Dual Chambolle-Pock algorithm to solve the denoising sub-problem  
+`y_minus_Cfit_L2_2.m` - Least-Mean-Squares function evaluating model and computing Hessian using Gauss-Newton approximation  
+`C_fit_FT.m` - Pharmacokinetic model computing the convolution of AIF and IRF in the Fourier domain  
+`TH_Sourbron2_FT.m` - Tissue Homogeneity model - IRF  
+`aif_nonblind_real.m` - Arterial Input Function (AIF) model. It is no analytical model - just handling of sampled AIF.  
+`fgrad_1.m` - computes image gradients on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).  
+`bdiv_1.m` - computes divergence (adjoint to gradients) on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).  
+`function_stdEst2D.m` - noise standard deviation estimator based on the Median of Absolute Deviation (MAD). It comes from Alessandro Foi.  
 
 
 ## Run estimation
@@ -31,5 +31,6 @@ Other parameters influencing the performance of the algorithm are described in t
 
 ---
 *Terms of Use*
+
 This code can be freely used for research purposes by academic organizations.
 If you use it in your research, please cite the papers above.
