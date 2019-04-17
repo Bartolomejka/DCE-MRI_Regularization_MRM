@@ -26,6 +26,11 @@ At the beginnig of the starting script, a dataset is chosen by un/commenting the
 ### Regularization
 The regularization can be influenced by `gamma_general` at the beginnig of the script `proximalLM_ChP.m`. Larger value means stronger total variation regularization. The regularization can be switch of by setting `TV_regularization=false`, leading to standard Levenberg-Marquardt algorithm.
 
+### View results
+The saved results of the computation can be opened by a provided interactive viewer located in  folder. It can be run by `VISUALIZATION.M` from `/Viewer/gui_mri/visualization`. Just load the file and then press *Show* button.
+
+Alternativelly, the results can be standard way loaded into Matlab and then the perfusion parameter maps can be created by e.g. `map = form_image(cell2mat(tissue(:,5)),tissue(:,2));` to create map of perfusion parameter in the fifth column. The columns are described in `info.tissue.descr`.
+
 ### Other options
 Other parameters influencing the performance of the algorithm are described in the code.
 
@@ -33,4 +38,4 @@ Other parameters influencing the performance of the algorithm are described in t
 *Terms of Use*
 
 This code can be freely used for research purposes by academic organizations.
-If you use it in your research, please cite the papers above.
+If you use it in your research, please cite the paper above.
