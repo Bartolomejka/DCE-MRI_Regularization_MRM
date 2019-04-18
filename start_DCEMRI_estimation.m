@@ -17,8 +17,8 @@ for file_number=1:length(filenames) % batch processing
     pause(1)
     close all
     disp(['File number: ' num2str(file_number) '/' num2str(length(filenames))]);
-    data_name=[filenames(file_number).folder '/' filenames(file_number).name];
-    
+    % data_name=[filenames(file_number).folder '/' filenames(file_number).name];
+    data_name=[folder filenames(file_number).name]; % old Matlab
     
     load(data_name);
     [data_path, data_name,~] = fileparts(data_name);

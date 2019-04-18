@@ -1,6 +1,7 @@
 # Spatially regularized estimation in DCE-MRI
-This repository contains implementation of the proximal Newton algorithm to estimatie perfusion parameters in DCE-MRI with spatial regularization in the form of total variation. The algorithm is described in the paper:
-*M. Bartoš, P. Rajmic, M. Šorel, M. Mangová, and R. Keunen, O. and Jiřík. Spatially regularized estimation of the tissue homogeneity model parameters in DCE-MRI using proximal minimization. Submitted to MRM, pages 1–27, 2019. Available at http://www.utko.feec.vutbr.cz/~rajmic/papers/Bartos_etal_RegularizedDCEMRI_web.pdf.*
+This repository contains implementation of the proximal Newton algorithm to estimate perfusion parameters in DCE-MRI with spatial regularization in the form of total variation. The algorithm is described in the paper:
+*M. Bartoš, P. Rajmic, M. Šorel, M. Mangová, and R. Keunen, O. and Jiřík. Spatially regularized estimation of the tissue homogeneity model parameters in DCE-MRI using proximal minimization. Submitted to Magnetic Resonance in Medicine, 27 pages, 2019.
+*Preprint available at http://www.utko.feec.vutbr.cz/~rajmic/papers/Bartos_etal_RegularizedDCEMRI_web.pdf.*
 
 ## Files and directories
 `/Data` - folder with input DCE-MRI data  
@@ -12,8 +13,8 @@ This repository contains implementation of the proximal Newton algorithm to esti
 `C_fit_FT.m` - Pharmacokinetic model computing the convolution of AIF and IRF in the Fourier domain  
 `TH_Sourbron2_FT.m` - Tissue Homogeneity model - IRF  
 `aif_nonblind_real.m` - Arterial Input Function (AIF) model. It is no analytical model - just handling of sampled AIF.  
-`fgrad_1.m` - computes image gradients on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).  
-`bdiv_1.m` - computes divergence (adjoint to gradients) on a mask. Non-mask version comes originally from Christian Bredies (TGV JPEG reconstruction).  
+`fgrad_1.m` - computes image gradients on a mask. Non-mask version comes originally from Kristian Bredies (TGV JPEG reconstruction).  
+`bdiv_1.m` - computes divergence (adjoint to gradients) on a mask. Non-mask version comes originally from Kristian Bredies (TGV JPEG reconstruction).  
 `function_stdEst2D.m` - noise standard deviation estimator based on the Median of Absolute Deviation (MAD). It comes from Alessandro Foi.  
 
 
@@ -21,7 +22,7 @@ This repository contains implementation of the proximal Newton algorithm to esti
 The estimation of the perfusion parameters is done by the script `start_DCEMRI_estimation.m`. The script inicializes the necessary constants and variable.
 
 ### Initialization
-At the beginnig of the starting script, a dataset is chosen by un/commenting the line defining the path to the file. Additionally, an initial starting point `x0_irf` is defined here. E.g the last element in the vector is the bolus arrival time, which should be updated in case of new dataset.
+At the beginnig of the starting script, a dataset is chosen by un/commenting the line defining the path to the file. Additionally, an initial starting point `x0_irf` is defined here. E.g. the last element in the vector is the bolus arrival time, which should be updated in case of new dataset.
 
 ### Regularization
 The regularization can be influenced by `gamma_general` at the beginnig of the script `proximalLM_ChP.m`. Larger value means stronger total variation regularization. The regularization can be switch of by setting `TV_regularization=false`, leading to standard Levenberg-Marquardt algorithm.
