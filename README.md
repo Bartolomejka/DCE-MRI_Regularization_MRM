@@ -19,18 +19,18 @@ This repository contains implementation of the proximal Newton algorithm to esti
 
 
 ## Run estimation
-The estimation of the perfusion parameters is done by the script `start_DCEMRI_estimation.m`. The script inicializes the necessary constants and variable.
+The estimation of the perfusion parameters is done by the script `start_DCEMRI_estimation.m`. The script inicializes the necessary constants and variables.
 
 ### Initialization
 At the beginnig of the starting script, a dataset is chosen by un/commenting the line defining the path to the file. Additionally, an initial starting point `x0_irf` is defined here. E.g. the last element in the vector is the bolus arrival time, which should be updated in case of new dataset.
 
 ### Regularization
-The regularization can be influenced by `gamma_general` at the beginnig of the script `proximalLM_ChP.m`. Larger value means stronger total variation regularization. The regularization can be switch of by setting `TV_regularization=false`, leading to standard Levenberg-Marquardt algorithm.
+The regularization can be influenced by scalar parameter `gamma_general` at the beginnig of the script `proximalLM_ChP.m`. Larger value means stronger total variation regularization. The regularization can be switched off by setting `TV_regularization=false`, leading to standard Levenberg-Marquardt algorithm.
 
 ### View results
 The saved results of the computation can be opened by a provided interactive viewer located in  folder. It can be run by `VISUALIZATION.M` from `/Viewer/gui_mri/visualization`. Just load the file and then press *Show* button.
 
-Alternativelly, the results can be standard way loaded into Matlab and then the perfusion parameter maps can be created by e.g. `map = form_image(cell2mat(tissue(:,5)),tissue(:,2));` to create map of perfusion parameter in the fifth column. The columns are described in `info.tissue.descr`.
+Alternativelly, the results can be in a standard way loaded into Matlab and then the perfusion parameter maps can be created by e.g. `map = form_image(cell2mat(tissue(:,5)),tissue(:,2));` to create the map of the perfusion parameter in the fifth column. The columns are described in `info.tissue.descr`.
 
 ### Other options
 Other parameters influencing the performance of the algorithm are described in the code.
