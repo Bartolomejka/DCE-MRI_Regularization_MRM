@@ -26,6 +26,15 @@ for file_number=1:length(filenames) % batch processing
     % % % data reduction
 %     tissue=tissue(1:round((end/6)),:);
     
+    % check and correct data ordering
+    reformat=check_vectorization_order(tissue);
+    if reformat
+        % correct [x y] in KSouc or any from PerfLab !!! Otherwise denoising
+        % step is not working correctly !!!
+        tissue(:,2)=cellfun(@(x)x.',tissue(:,2),'UniformOutput',false);
+        data2{1}=data2{1}.';
+    end
+    
     % mask
     [row,col]=size(data2{1});
     phantom_mask_crop=false(row,col);
@@ -365,6 +374,12 @@ for file_number=1:length(filenames) % batch processing
     % correct normalization
     tissue(:,1)=cellfun(@(x)x*trf_norm_coeff,data_separate(:,1),'UniformOutput',false);
     
+    if reformat
+        % return back the ordering
+        tissue(:,2)=cellfun(@(x)x.',tissue(:,2),'UniformOutput',false);
+        data2{1}=data2{1}.';
+    end
+
     % save(filename,'info','tissue','data2','-v7.3'); % larger files
     save(filename,'info','tissue','data2','-v7');
     disp(['Data were saved as: ' filename])
